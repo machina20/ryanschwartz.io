@@ -1,8 +1,9 @@
 import Link from "next/link";
 
 export default async function Navbar() {
+  "use client";
   return (
-    <nav className="flex text-[#707070] justify-between w-full text-xs">
+    <nav className="flex text-[#707070] justify-between w-full text-xs ">
       <LinkItem name="RYAN SCHWARTZ"></LinkItem>
 
       <div className="space-x-4">
@@ -20,7 +21,7 @@ interface LinkItemProps {
 }
 function LinkItem({ name, link }: LinkItemProps) {
   return (
-    <a href={link} className="transition-colors hover:text-white">
+    <a href={link} className="lg:text-xl transition-colors hover:text-white">
       {name}
     </a>
   );
