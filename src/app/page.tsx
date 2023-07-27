@@ -7,8 +7,8 @@ const logos = LogoRow();
 
 export default function Home() {
 	return (
-		<body className=" text-inter  pt-8 flex-col h-full px-12 md:px-24 lg:px-48 lg:pt-12 bg-[#201F1F] items-center">
-			<Navbar></Navbar>
+		<body className="pt-8 flex-col h-full px-12 md:px-24 lg:px-48 lg:pt-12 bg-[#201F1F] items-center">
+			<Navbar />
 
 			<div className="flex justify-center">
 				{/* this div's contents go right to left */}
@@ -46,11 +46,27 @@ export default function Home() {
 					></Image>
 				</div>
 			</div>
-			<div className="flex-col items-center">
-				<h1 className="flex justify-center text-white pt-16 pb-8 text-xl lg:text-5xl">
+			<div className="flex-col items-center pt-32">
+				<h1 className="flex justify-center text-white pb-8 text-xl lg:text-5xl">
 					Tech I use
 				</h1>
-				<div className="flex items-center justify-center py-8">{logos}</div>
+				<div className="flex items-center justify-center py-8 ">{logos}</div>
+			</div>
+
+			<div className="pt-64 flex flex-col items-center">
+				<h1 className="flex justify-center text-white pb-8 text-xl lg:text-5xl">
+					Chosen Projects
+				</h1>
+
+				<button className="mt-8 rounded-xl hover:text-black hover:bg-white transition-all ease-linear duration-300  bg-black text-white py-10 px-64">
+					Project 1
+				</button>
+				<button className="mt-8 rounded-xl hover:text-black hover:bg-white transition-all ease-linear duration-300  bg-black text-white py-10 px-64">
+					Project 2
+				</button>
+				<button className="my-8 rounded-xl hover:text-black hover:bg-white transition-all ease-linear duration-300  bg-black text-white py-10 px-64">
+					Project 3
+				</button>
 			</div>
 		</body>
 	);
