@@ -13,13 +13,15 @@ const LogoGallery = () => {
 	const logos = getLogoFiles();
 
 	return logos.map((logo, index) => (
-		<Image
-			key={index}
-			src={`/logos/${logo}`} // Assuming logos are in the 'logos' folder within the 'public' directory
-			alt={`Logo ${index}`}
-			width={40}
-			height={40}
-		/>
+		<div>
+			<Image
+				key={index}
+				src={`/logos/${logo}`}
+				alt={`Logo ${index}`}
+				width={40}
+				height={40}
+			/>
+		</div>
 	));
 };
 

@@ -50,21 +50,23 @@ export default function Home() {
 				<h1 className="flex justify-center text-white pb-8 text-xl lg:text-5xl">
 					Tech I use
 				</h1>
-				<div className="flex items-center justify-center py-8 ">{logos}</div>
+				<div className="w-full flex items-center justify-center py-8 ">
+					{logos}
+				</div>
 			</div>
 
-			<div className="pt-64 flex flex-col items-center">
+			<div className="pt-64 pb-32 flex flex-col items-center">
 				<h1 className="flex justify-center text-white pb-8 text-xl lg:text-5xl">
 					Chosen Projects
 				</h1>
 
-				<button className="mt-8 rounded-xl hover:text-black hover:bg-white transition-all ease-linear duration-300  bg-black text-white py-10 px-64">
+				<button className="w-full py-5 mx-4  rounded-xl hover:text-black hover:bg-white transition-all ease-linear duration-300 bg-black text-white my-2">
 					Project 1
 				</button>
-				<button className="mt-8 rounded-xl hover:text-black hover:bg-white transition-all ease-linear duration-300  bg-black text-white py-10 px-64">
+				<button className="w-full py-5 mx-4  rounded-xl hover:text-black hover:bg-white transition-all ease-linear duration-300 bg-black text-white my-2">
 					Project 2
 				</button>
-				<button className="my-8 rounded-xl hover:text-black hover:bg-white transition-all ease-linear duration-300  bg-black text-white py-10 px-64">
+				<button className="w-full py-5 mx-4  rounded-xl hover:text-black hover:bg-white transition-all ease-linear duration-300 bg-black text-white my-2 ">
 					Project 3
 				</button>
 			</div>

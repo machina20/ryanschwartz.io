@@ -7,9 +7,9 @@ export default async function Navbar() {
 			<LinkItem name="RYAN SCHWARTZ"></LinkItem>
 
 			<div className="space-x-4 ">
-				<LinkItem name="About"></LinkItem>
 				<LinkItem name="Projects"></LinkItem>
 				<LinkItem name="Contact"></LinkItem>
+				<LinkItem name="Guestbook"></LinkItem>
 			</div>
 		</nav>
 	);
