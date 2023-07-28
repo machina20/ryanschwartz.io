@@ -13,9 +13,8 @@ const LogoGallery = () => {
 	const logos = getLogoFiles();
 
 	return logos.map((logo, index) => (
-		<div>
+		<div key={index}>
 			<Image
-				key={index}
 				src={`/logos/${logo}`}
 				alt={`Logo ${index}`}
 				width={40}
