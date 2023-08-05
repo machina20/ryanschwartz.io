@@ -1,15 +1,16 @@
+"use client";
+
 import Link from "next/link";
 
-export default async function Navbar() {
-	"use client";
+export default function Navbar() {
 	return (
 		<nav className="  flex text-[#707070] justify-between w-full text-xs bg-[#201F1F] ">
-			<LinkItem name="RYAN SCHWARTZ"></LinkItem>
+			<LinkItem name="RYAN SCHWARTZ" link="/"></LinkItem>
 
 			<div className="space-x-4 ">
-				<LinkItem name="Projects"></LinkItem>
-				<LinkItem name="Contact"></LinkItem>
-				<LinkItem name="Guestbook"></LinkItem>
+				<LinkItem name="Projects" link="/"></LinkItem>
+				<LinkItem name="Contact" link="/"></LinkItem>
+				<LinkItem name="Guestbook" link="/guestbook"></LinkItem>
 			</div>
 		</nav>
 	);
@@ -21,8 +22,11 @@ interface LinkItemProps {
 }
 function LinkItem({ name, link }: LinkItemProps) {
 	return (
-		<a href={link} className="lg:text-xl transition-colors hover:text-white">
+		<Link
+			href={`${link}`}
+			className="lg:text-xl transition-colors hover:text-white"
+		>
 			{name}
-		</a>
+		</Link>
 	);
 }
