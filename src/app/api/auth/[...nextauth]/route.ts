@@ -3,7 +3,7 @@ import  CredentialsProvider  from "next-auth/providers/credentials";
 import { prisma } from "../../../../lib/prisma";
 import { compare } from "bcrypt";
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   pages:{
     signIn: '/login'
   },
