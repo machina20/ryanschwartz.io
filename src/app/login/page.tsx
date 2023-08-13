@@ -8,7 +8,7 @@ export default function register() {
 				<h1 className="font-semibold text-2xl">Log In</h1>
 				<LoginForm></LoginForm>
 				<p className="text-center">
-					Don't have an account?{" "}
+					Don&apos;t have an account?{" "}
 					<Link className="text-gray-500 hover:underline" href={"/register"}>
 						Sign Up
 					</Link>
