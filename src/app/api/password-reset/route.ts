@@ -2,7 +2,7 @@
 import { auth } from "@/auth/lucia";
 import { sendPasswordResetLink } from "@/auth/email";
 import { generatePasswordResetToken } from "@/auth/token";
-import { prisma_client } from "../../../../lib/prisma";
+import { prisma_client } from "@/lib/prisma";
 import type { NextRequest } from "next/server";
 
 
@@ -14,8 +14,8 @@ const isValidEmail = (maybeEmail: unknown): maybeEmail is string => {
 };
 
 export const POST = async (request: NextRequest) => {
-	const formData = await request.formData();
-	const email = formData.get("email");
+	const req = await request.json();
+	const email = req.email
 	// basic check
 	if (!isValidEmail(email)) {
 		return new Response(

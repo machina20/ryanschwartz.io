@@ -3,7 +3,6 @@ import { LoginForm } from "./form";
 import { auth } from "@/auth/lucia";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import Form from "@/components/form";
 
 export default async function register() {
 	const authRequest = auth.handleRequest({
@@ -23,7 +22,7 @@ export default async function register() {
 				<LoginForm></LoginForm>
 				<p className="text-center">
 					Don&apos;t have an account?{" "}
-					<Link className="text-gray-500 hover:underline" href={"/register"}>
+					<Link className="text-gray-500 hover:underline" href={"/signup"}>
 						Sign Up
 					</Link>
 				</p>

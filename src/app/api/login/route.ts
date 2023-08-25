@@ -7,9 +7,9 @@ import { LuciaError } from "lucia";
 import type { NextRequest } from "next/server";
 
 export const POST = async (request: NextRequest) => {
-	const formData = await request.formData();
-	const email = formData.get("email");
-	const password = formData.get("password");
+	const req = await request.json();
+	const email = req.email
+	const password = req.password
 	// basic check
 	if (typeof email !== "string" || email.length < 1 || email.length > 255) {
 		return NextResponse.json(

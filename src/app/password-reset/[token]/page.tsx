@@ -1,5 +1,4 @@
-import Form from "@/components/form";
-
+import { PassResetTokenForm } from "./form";
 const Page = async ({
 	params,
 }: {
@@ -8,15 +7,12 @@ const Page = async ({
 	};
 }) => {
 	return (
-		<>
-			<h1>Reset password</h1>
-			<Form action={`/api/password-reset/${params.token}`} successMessage="">
-				<label htmlFor="password">New Password</label>
-				<input name="password" id="password" />
-				<br />
-				<input type="submit" />
-			</Form>
-		</>
+		<div className="h-screen  w-screen flex justify-center items-center sm:bg-[#201F1F]">
+			<div className="sm:shadow-xl px-8 py-8 sm:bg-white rounded-lg space-y-12">
+				<p>Choose your new password.</p>
+				<PassResetTokenForm token={params.token}></PassResetTokenForm>
+			</div>
+		</div>
 	);
 };
 

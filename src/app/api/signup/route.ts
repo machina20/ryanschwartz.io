@@ -15,9 +15,11 @@ const isValidEmail = (maybeEmail: unknown): maybeEmail is string => {
 };
 
 export const POST = async (request: NextRequest) => {
-	const formData = await request.formData();
-	const email = formData.get("email");
-	const password = formData.get("password");
+	const req = await request.json()
+	const email = req.email
+	const password = req.password
+
+	console.log(email, password)
 	// basic check
 	if (!isValidEmail(email)) {
 		return NextResponse.json(
@@ -44,6 +46,7 @@ export const POST = async (request: NextRequest) => {
 		);
 	}
 	try {
+		
 			const user = await auth.createUser({
 				key: {
 					providerId: "email", // auth method

@@ -14,8 +14,8 @@ export const POST = async (
 		};
 	}
 ) => {
-	const formData = await request.formData();
-	const password = formData.get("password");
+	const req = await request.json();
+	const password = req.password;
 	// basic check
 	if (
 		typeof password !== "string" ||

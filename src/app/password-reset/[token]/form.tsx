@@ -4,54 +4,51 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
+import { redirect } from "next/dist/server/api-utils";
 import { signIn } from "next-auth/react";
 import { Alert } from "@/components/ui/alert";
-import { redirect } from "next/navigation";
+import Credentials from "next-auth/providers/credentials";
+import { Success } from "@/components/ui/success";
 
-export const RegisterForm = () => {
-	const [email, setEmail] = useState("");
+interface PassResetProps {
+	token: string;
+}
+
+export const PassResetTokenForm = ({ token }: PassResetProps) => {
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
+	const [success, setSuccess] = useState("");
 
 	const onSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		try {
-			const res = await fetch("api/signup", {
-				method: "POST",
-				body: JSON.stringify({
-					email,
-					password,
-				}),
-				headers: {
-					"Content-Type": "application/json",
-				},
-			});
+			const res = await fetch(
+				`http://localhost:3000/api/password-reset/${token}`,
+				{
+					method: "POST",
+					body: JSON.stringify({
+						password,
+					}),
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			);
 			if (res.ok) {
 				//redirect to login
-				setError("Verification email sent.");
+				setSuccess("Successfully reset password");
+				setError("");
 			} else {
 				console.log(error);
 				setError((await res.json()).error);
+				setSuccess("");
 			}
 		} catch (err: any) {
 			console.log(err.message);
 		}
 	};
-
 	return (
 		<form onSubmit={onSubmit} className="space-y-12 w-full sm:w-[400px]">
-			<div className="grid w-full  items-center gap-1.5">
-				<Label htmlFor="email">Email</Label>
-				<Input
-					required
-					value={email}
-					onChange={(e) => {
-						setEmail(e.target.value);
-					}}
-					id="email"
-					type="email"
-				/>
-			</div>
 			<div className="grid w-full  items-center gap-1.5">
 				<Label htmlFor="password">Password</Label>
 				<Input
@@ -64,10 +61,13 @@ export const RegisterForm = () => {
 					type="password"
 				/>
 			</div>
-			<div className="w-full text-[#201F1F]">
+
+			<div className="w-full">
 				{error && <Alert>{error}</Alert>}
+				{success && <Success>{success}</Success>}
+
 				<Button className="w-full bg-[#201F1F] hover:bg-gray-600" size={"lg"}>
-					Sign up
+					Submit
 				</Button>
 			</div>
 		</form>

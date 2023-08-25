@@ -3,7 +3,7 @@ import { prisma } from "@lucia-auth/adapter-prisma";
 import { Prisma, PrismaClient } from "@prisma/client";
 import { generateRandomString, isWithinExpiration } from "lucia/utils";
 import { auth } from "./lucia";
-import { prisma_client } from "../../lib/prisma";
+import { prisma_client } from "@/lib/prisma";
 
 const EXPIRES_IN = 1000 * 60 * 60 * 2; // 2 hours
 
