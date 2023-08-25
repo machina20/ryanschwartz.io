@@ -11,8 +11,40 @@ datasource db {
 }
 
 model User {
-  id       Int     @id @default(autoincrement())
-  email    String  @unique
-  password String
-  name     String?
+  id             String    @id @unique
+  email          String    @unique
+  email_verified Boolean
+  auth_session   Session[]
+  key            Key[]
+}
+
+model Session {
+  id             String @id @unique
+  user_id        String
+  active_expires BigInt
+  idle_expires   BigInt
+  user           User   @relation(references: [id], fields: [user_id], onDelete: Cascade)
+
+  @@index([user_id])
+}
+
+model Key {
+  id              String  @id @unique
+  hashed_password String?
+  user_id         String
+  user            User    @relation(references: [id], fields: [user_id], onDelete: Cascade)
+
+  @@index([user_id])
+}
+
+model email_verification_token {
+  id      String
+  expires BigInt @id
+  user_id String
+}
+
+model password_reset_token {
+  id      String
+  expires BigInt @id
+  user_id String
 }
