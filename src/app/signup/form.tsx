@@ -7,11 +7,13 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { Alert } from "@/components/ui/alert";
 import { redirect } from "next/navigation";
+import { Success } from "@/components/ui/success";
 
 export const RegisterForm = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
+	const [success, setSuccess] = useState("");
 
 	const onSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -28,7 +30,7 @@ export const RegisterForm = () => {
 			});
 			if (res.ok) {
 				//redirect to login
-				setError("Verification email sent.");
+				setSuccess("Verification email sent.");
 			} else {
 				console.log(error);
 				setError((await res.json()).error);
@@ -66,6 +68,7 @@ export const RegisterForm = () => {
 			</div>
 			<div className="w-full text-[#201F1F]">
 				{error && <Alert>{error}</Alert>}
+				{success && <Success>{success}</Success>}
 				<Button className="w-full bg-[#201F1F] hover:bg-gray-600" size={"lg"}>
 					Sign up
 				</Button>

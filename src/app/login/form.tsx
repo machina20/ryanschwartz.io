@@ -4,11 +4,11 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
-import { redirect } from "next/dist/server/api-utils";
-import { signIn } from "next-auth/react";
 import { Alert } from "@/components/ui/alert";
-import Credentials from "next-auth/providers/credentials";
 import { Success } from "@/components/ui/success";
+import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { Router } from "next/router";
 
 export const LoginForm = () => {
 	const [email, setEmail] = useState("");
@@ -16,22 +16,25 @@ export const LoginForm = () => {
 	const [error, setError] = useState("");
 	const [success, setSuccess] = useState("");
 
+	const router = useRouter();
+
 	const onSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 
 		try {
-			const res = await fetch("api/email-verification", {
+			const res = await fetch("api/login", {
 				method: "POST",
 				body: JSON.stringify({
 					email,
+					password,
 				}),
 				headers: {
 					"Content-Type": "application/json",
 				},
 			});
 			if (res.ok) {
-				//redirect to login
-				setSuccess("Verification email sent.");
+				//redirect to guestbook
+				window.location.href = "/guestbook";
 			} else {
 				console.log(error);
 				setError((await res.json()).error);

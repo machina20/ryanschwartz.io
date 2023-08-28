@@ -12,7 +12,7 @@ export default async function register() {
 	const session = await authRequest.validate();
 	if (session) {
 		if (!session.user.emailVerified) redirect("/email-verification");
-		redirect("/");
+		redirect("/guestbook");
 	}
 
 	return (

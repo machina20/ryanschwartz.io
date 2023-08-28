@@ -3,7 +3,7 @@ import { auth } from "@/auth/lucia";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { LuciaError } from "lucia";
-
+import { redirect } from "next/navigation";
 import type { NextRequest } from "next/server";
 
 export const POST = async (request: NextRequest) => {
@@ -48,11 +48,10 @@ export const POST = async (request: NextRequest) => {
 			cookies
 		});
 		authRequest.setSession(session);
+    
 		return new Response(null, {
-			status: 302,
-			headers: {
-				Location: "/" // redirect to profile page
-			}
+			status: 200,
+			
 		});
 	} catch (e) {
 		if (

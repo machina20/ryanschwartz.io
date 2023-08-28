@@ -25,6 +25,10 @@ export const auth = lucia({
 		}
   
   },
+  // experimental
+	experimental: {
+		debugMode: true
+	},
 	
 });
 
