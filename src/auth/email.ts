@@ -5,7 +5,7 @@ import { ReactElement } from 'react';
 
 // auth/email.ts
 export const sendEmailVerificationLink = async (email: string, token: string) => {
-	const url = `http://localhost:3000/email-verification/${token}`;
+	const url = `https://ryanschwartz.io/email-verification/${token}`;
 	
 	try {
     const data = await resend.emails.send({
@@ -21,7 +21,7 @@ export const sendEmailVerificationLink = async (email: string, token: string) =>
 };
 
 export const sendPasswordResetLink = async (email: string, token: string) => {
-	const url = `http://localhost:3000/password-reset/${token}`;
+	const url = `https://ryanschwartz.io/password-reset/${token}`;
 	
 	try {
     const data = await resend.emails.send({

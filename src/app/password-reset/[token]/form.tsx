@@ -23,7 +23,7 @@ export const PassResetTokenForm = ({ token }: PassResetProps) => {
 		e.preventDefault();
 		try {
 			const res = await fetch(
-				`http://localhost:3000/api/password-reset/${token}`,
+				`https://ryanschwartz.io/api/password-reset/${token}`,
 				{
 					method: "POST",
 					body: JSON.stringify({
