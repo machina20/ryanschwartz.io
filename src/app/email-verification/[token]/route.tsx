@@ -36,7 +36,7 @@ export const GET = async (
 		});
 		redirect("/dashboard");
 	} catch {
-		return new Response("Invalid email verification link", {
+		return new Response("Invalid or expired email verification link", {
 			status: 400,
 		});
 	}
