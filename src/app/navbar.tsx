@@ -10,6 +10,8 @@ export default function Navbar() {
 			<div className="space-x-4 ">
 				<LinkItem name="Projects" link="/"></LinkItem>
 				<LinkItem name="Contact" link="/"></LinkItem>
+				<LinkItem name="Blog" link="/blog"></LinkItem>
+
 				<LinkItem name="Guestbook" link="/guestbook"></LinkItem>
 			</div>
 		</nav>
