@@ -48,3 +48,9 @@ model password_reset_token {
   expires BigInt @id
   user_id String
 }
+
+model post {
+  id      String @id @unique
+  user    String
+  content String
+}

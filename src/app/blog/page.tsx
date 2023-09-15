@@ -18,10 +18,6 @@ function PostCard(post: Post) {
 			>
 				{format(parseISO(post.date), "LLLL d, yyyy")}
 			</time>
-			<div
-				className="text-white text-sm [&>*]:mb-3 [&>*:last-child]:mb-0"
-				dangerouslySetInnerHTML={{ __html: post.body.html }}
-			/>
 		</div>
 	);
 }
@@ -34,6 +30,7 @@ export default function Home() {
 	return (
 		<body className="pt-8 flex-col h-full px-12 md:px-24 lg:px-48 lg:pt-12 bg-[#201F1F] items-center">
 			<Navbar />
+
 			<div className="bg-[#201F1F] h-screen">
 				<div className="mx-auto max-w-xl py-8 ">
 					<h1 className="mb-8 text-center text-2xl text-white">Blog</h1>

@@ -5,7 +5,9 @@ const nextConfig = {
 	experimental: {
 		serverComponentsExternalPackages: ["@prisma/client", "bcrypt"],
 		serverActions: true,
+		mdxRs: true,
 	},
 };
 
-module.exports = withContentlayer(nextConfig);
+const withMDX = require("@next/mdx")();
+module.exports = withContentlayer(withMDX(nextConfig));
