@@ -50,7 +50,7 @@ model password_reset_token {
 }
 
 model post {
-  id      String @id @unique
+  id      String @id
   user    String
   content String
 }

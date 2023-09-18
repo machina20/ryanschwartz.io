@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import Navbar from "../navbar";
 import { Button } from "@/components/ui/button";
 import Signout from "./form";
+import GuestbookForm from "./guestbookForm";
 
 const Guestbook = async () => {
 	const authRequest = auth.handleRequest({
@@ -22,7 +23,7 @@ const Guestbook = async () => {
 	return (
 		<body className="flex justify-center pt-8 flex-col h-full px-12 md:px-24 lg:px-48 lg:pt-12 bg-[#201F1F] items-center text-white">
 			<Navbar />
-
+			<GuestbookForm></GuestbookForm>
 			<div className="flex justify-center text-xl pt-16 flex-col items-center">
 				This page is protected. You should only be seeing this if you have
 				verified your email.

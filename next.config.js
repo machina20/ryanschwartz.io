@@ -1,13 +1,13 @@
-const { withContentlayer } = require("next-contentlayer");
+import { withContentlayer } from "next-contentlayer";
+import withMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	experimental: {
-		serverComponentsExternalPackages: ["@prisma/client", "bcrypt"],
+		serverComponentsExternalPackages: ["@prisma/client"],
 		serverActions: true,
 		mdxRs: true,
 	},
 };
 
-const withMDX = require("@next/mdx")();
-module.exports = withContentlayer(withMDX(nextConfig));
+export default withContentlayer(withMDX(nextConfig));

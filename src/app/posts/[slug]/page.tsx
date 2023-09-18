@@ -3,6 +3,11 @@ import { format, parseISO } from "date-fns";
 import { allPosts } from "contentlayer/generated";
 import Navbar from "@/app/navbar";
 import { notFound } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { MDXComponents } from "mdx/types";
+import { useMDXComponent } from "next-contentlayer/hooks";
+
+const mdxComponents: MDXComponents = { Button };
 
 export const generateStaticParams = async () =>
 	allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
@@ -20,6 +25,9 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
 		throw new Error(`Post not found for slug: ${params.slug}`);
 		notFound();
 	}
+
+	const MDXContent = useMDXComponent(post.body.raw);
+
 	return (
 		<body className="pt-8 flex-col h-full px-12 md:px-24 lg:px-48 lg:pt-12 bg-[#201F1F] items-center">
 			<Navbar />
@@ -35,6 +43,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
 					className="[&>*]:mb-3 [&>*:last-child]:mb-0"
 					dangerouslySetInnerHTML={{ __html: post.body.html }}
 				/>
+				<MDXContent components={mdxComponents} />
 			</article>
 		</body>
 	);
