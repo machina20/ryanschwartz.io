@@ -10,4 +10,4 @@ const nextConfig = {
 	},
 };
 
-export default withContentlayer(withMDX(nextConfig));
+export default withContentlayer(nextConfig);
