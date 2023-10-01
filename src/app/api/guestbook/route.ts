@@ -31,15 +31,14 @@ export const POST = async (request: NextRequest) => {
 		//check to see if they have more than 7 posts
 
 		
-    const posts = await prisma_client.post.findMany({ //get the users tokens 
+    const posts = await prisma_client.guestbook_entry.findMany({ //get the users tokens 
 			where:{
 				id: id
 			}
 		}) 
 		console.log("38")
 		if (posts && posts.length < 7) {
-			console.log("less then 7 posts")
-			await prisma_client.post.create(
+			await prisma_client.guestbook_entry.create(
 				{data: {
 					user: session.user.email,
 					content: comment,
