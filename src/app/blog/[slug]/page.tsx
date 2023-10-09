@@ -95,7 +95,7 @@ export default async function Blog({
 							__html: JSON.stringify(post._raw),
 						}}
 					></script>
-					<h1 className="font-bold text-2xl text-white tracking-tighter max-w-[650px]">
+					<h1 className="pt-8 font-bold text-2xl text-white tracking-tighter max-w-[650px]">
 						<Balancer>{post.title}</Balancer>
 					</h1>
 					<div className="flex justify-between text-white items-center mt-2 mb-8 text-sm max-w-[650px]">

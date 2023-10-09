@@ -21,13 +21,9 @@ export default function Home() {
 						I&apos;m studying compsci and physics at ASU.
 					</p>
 					<p className="text-white lg:text-2xl text-xs mt-4">
-						I&apos;m
-						<i>
-							<strong> CRIPPLINGLY </strong>
-						</i>
-						passionate about understanding technology on a granular, mechanistic
-						level and using that technical understanding to move fast and build
-						creative solutions.
+						I&apos;m passionate about understanding technology on a granular,
+						mechanistic level and using that technical understanding to move
+						fast and build creative solutions.
 					</p>
 					<p className="text-white lg:text-2xl text-xs mt-4">
 						My current focus is on infrastructure automation and building
@@ -35,13 +31,11 @@ export default function Home() {
 					</p>
 				</div>
 
-				<div className="lg:flex md:flex  lg:justify-center pt-16 pl-8 md:p-16 lg:w-1/2 lg:pl ">
+				<div className="lg:flex md:flex  lg:justify-center pt-16 pl-8 md:p-16  md:w-1/2 lg:w-1/2  ">
 					<Image
-						placeholder="blur"
 						className="rounded hover:"
 						src={selfie}
 						alt="Picture of me"
-						height={400}
 						width={400}
 					></Image>
 				</div>
@@ -57,7 +51,7 @@ export default function Home() {
 
 			<div className="pt-64 pb-32 flex flex-col items-center">
 				<h1 className="flex justify-center text-white pb-8 text-xl lg:text-5xl">
-					Chosen Projects
+					Project Case Studies coming soon
 				</h1>
 
 				<button className="w-full py-5 mx-4  rounded-xl hover:text-black hover:bg-white transition-all ease-linear duration-300 bg-black text-white my-2">

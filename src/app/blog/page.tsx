@@ -31,8 +31,8 @@ export default function Home() {
 		<body className="pt-8 flex-col h-full px-12 md:px-24 lg:px-48 lg:pt-12 bg-[#201F1F] items-center">
 			<Navbar />
 
-			<div className="bg-[#201F1F] h-screen">
-				<div className="mx-auto max-w-xl py-8 ">
+			<div className="bg-[#201F1F] h-screen ">
+				<div className="mx-auto max-w-xl py-8">
 					<h1 className="mb-8 text-center text-2xl text-white">Blog</h1>
 					{posts.map((post, idx) => (
 						<PostCard key={idx} {...post} />
