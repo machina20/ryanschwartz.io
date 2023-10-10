@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Navbar from "./navbar";
-import selfie from "./pfpgimpcroppedd.jpg";
+import selfie from "./pfpgimpcropped.jpg";
 import LogoRow from "./logoRow";
 
 const logos = LogoRow();
@@ -32,12 +32,12 @@ export default function Home() {
 				</div>
 
 				<div className="lg:flex md:flex  lg:justify-center pt-16 pl-8 md:p-16  md:w-1/2 lg:w-1/2  ">
-					<Image
+					{/* <Image
 						className="rounded hover:"
 						src={selfie}
 						alt="Picture of me"
 						width={400}
-					></Image>
+					></Image> */}
 				</div>
 			</div>
 			<div className="flex-col items-center pt-32">
