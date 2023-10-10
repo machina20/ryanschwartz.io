@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Navbar from "./navbar";
-import selfie from "./pfpgimpcropped.jpg";
+import selfie from "./pfpgimpcroppedd.jpg";
 import LogoRow from "./logoRow";
 
 const logos = LogoRow();
